@@ -112,6 +112,7 @@ generateData <- function(
   ## Get the models
   model_list <- generatecSEMModel(.model, ...)
 
+
   ## Compute Sigma matrices
   sigma_list <- lapply(model_list$Models, generateSigma,
                        .handle_negative_definite = handle_negative_definite)
