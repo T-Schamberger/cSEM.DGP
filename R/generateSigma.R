@@ -188,6 +188,6 @@ generateSigma <- function(
            call. = FALSE)
     }
   } else {
-    list(Sigma, path_matrix)
+    Sigma
   }
 }
