@@ -173,7 +173,6 @@ generatecSEMModel <- function(
     if(!is.null(Phi_coefs)) {
       coef_df <- merge(coef_df, Phi_coefs, sort = FALSE)
     }
-
   } else if(!is.null(error_coefs)) {
     coef_df <- error_coefs
     if(!is.null(Phi_coefs)) {
@@ -191,10 +190,10 @@ generatecSEMModel <- function(
   ## Combine Structural, measurement/composite and error correlation matrices
   ## and add the rest of the information
   sme <-
-    unlist(lapply(sl, function(s) {
-      unlist(lapply(ml, function(m) {
-        unlist(lapply(el, function(e) {
-          lapply(Phil, function(Phi) {
+    unlist(lapply(Phil, function(Phi){
+      unlist(lapply(el, function(e) {
+        unlist(lapply(ml, function(m) {
+          lapply(sl, function(s){
             l <- list(
               "structural"  = xx$structural,
               "measurement" = xx$measurement,
